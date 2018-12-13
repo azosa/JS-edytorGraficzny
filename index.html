@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <style>
+         input[type=range] {
+  -webkit-appearance: none; 
+  width: 100%; 
+  background: transparent;
+}
+   input[type=range] {
+  -webkit-appearance: none; 
+  width: 100%; 
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none; 
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+      body{
+        background:  rgba(235, 236, 227, 0.753);
+      }
+    #container{
+      background: rgba(221, 221, 213, 0.753);
+      margin: 10% auto auto auto;
+      padding:30px;
+      width:80%;
+      box-shadow: 1px 2px 12px #3d3a3a;
+      display:flex;
+      flex-direction: row;
+    }
+    #canvas{
+      margin: auto auto;
+    }
+    #options{
+      display:flex;
+      margin:auto auto;
+      flex-wrap: nowrap;
+   
+    }
+   #option{
+     margin: 30px 40px 30px 20px;
+
+   }
+  
+   .button{
+     margin:5px;
+     padding:5px;
+     width:100%;
+     font-family: 'Open Sans', sans-serif;
+     font-weight: 500;
+     text-transform: uppercase;
+     font-size:1rem;
+     color: rgba(0, 0, 0, 0.753);
+     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+     background-color: rgba(152, 210, 211, 0.753);
+     border:none;
+     cursor:pointer;
+     
+
+   }
+   .button:hover{
+     box-shadow:1px 0px 10px #000000, 1px 1px 1px #0d0d0d;
+   }
+
+      #sliders{
+     margin: auto auto;
+     display:flex;
+     flex-direction: column;
+   }
+.slider span{
+  margin-left:20px;
+}
+   .slider{
+    margin-top:10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.753);
+    text-align: center;
+    width: 400px;
+   
+   }
+
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 13px;
+  border-radius:50%;
+  background: #ffffff;
+  margin:-7px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border-radius: 4px;
+  border: 0.2px solid #010101;
+}
+
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.5px;
+  cursor: pointer;
+  box-shadow: 0.1px 0.1px 1px #000000, 0px 0px 0.1px #0d0d0d;
+  border-radius: 4px;
+  border: 0.2px solid #010101;
+
+}
+
+
+input[type=range]::-moz-range-thumb {
+ 
+  border: 0.5px solid #000000;
+  height: 20px;
+  width: 13px;
+  border-radius:50%;
+  background: #ffffff;
+ 
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+}
+
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10.5px;
+  cursor: pointer;
+  box-shadow: 1px 0.1px 0.1px #000000, 0px 0px 0.1px #0d0d0d;
+  border-radius: 4px;
+  border: 0.1px solid #010101;
+}
+
+input[type=range]::-ms-thumb {
+  border: 0.5px solid #000000;
+  height:18px;
+  width: 14px;
+  border-radius:50%;
+  background: #ffffff;
+ 
+  cursor: pointer;
+  box-shadow: 1px 1px 0.1px #000000, 0px 0px 1px #0d0d0d; 
+}
+
+#redSlider::-webkit-slider-runnable-track {
+  background:rgba(231, 56, 56, 0.877);
+}
+
+#blueSlider::-webkit-slider-runnable-track {
+  background:rgba(54, 129, 214, 0.822);
+}
+#greenSlider::-webkit-slider-runnable-track {
+  background: rgba(34, 180, 78, 0.753);
+}
+
+
+#redSlider:hover::-webkit-slider-runnable-track {
+  background:rgba(231, 56, 56, 1);
+}
+#blueSlider:hover::-webkit-slider-runnable-track {
+  background:rgba(54, 129, 214, 1);
+}
+#greenSlider:hover::-webkit-slider-runnable-track {
+  background: rgba(34, 180, 78, 1);
+}
+
+#redSlider::-ms-track {
+  background:rgba(231, 56, 56, 0.877);
+}
+
+#blueSlider::-ms-track {
+  background:rgba(54, 129, 214, 0.822);
+}
+#greenSlider::-ms-track {
+  background: rgba(34, 180, 78, 0.753);
+}
+#redSlider:hover::-ms-track {
+  background:rgba(231, 56, 56, 1);
+}
+#blueSlider:hover::-ms-track {
+  background:rgba(54, 129, 214, 1);
+}
+#greenSlider:hover::-ms-track {
+  background: rgba(34, 180, 78, 1);
+}
+
+
+#redSlider::-moz-range-track {
+  background:rgba(231, 56, 56, 0.877);
+}
+
+#blueSlider::-moz-range-track {
+  background:rgba(54, 129, 214, 0.822);
+}
+#greenSlider::-moz-range-track {
+  background: rgba(34, 180, 78, 0.753);
+}
+#redSlider:hover::-moz-range-track {
+  background:rgba(231, 56, 56, 1);
+}
+#blueSlider:hover::-moz-range-track {
+  background:rgba(54, 129, 214, 1);
+}
+#greenSlider:hover::-moz-range-track {
+  background: rgba(34, 180, 78, 1);
+}
+
+
+
+ 
+@media only screen and (max-width: 1450px){
+  #container{
+    
+      flex-direction: column;
+    }
+
+    .button{
+ 
+     width:45%;
+}
+#options{
+  flex-direction: column;
+}
+}
+    </style>
+</head>
+<body> 
+ 
+  <div id="container">
+   
+     <div id="canvas">
+    <canvas width="600" height="300" id="ps"></canvas>
+  </div> <div id="options">
+  <div id="option">
+    <button class="button"id="brighter">Brighter</button>
+    <button  class="button" id="darker">Darker</button>
+    <button  class="button"id="blackWhite">B&amp;W</button>
+    <button class="button" id="grayscale">grayscale</button>
+    <button  class="button"id="sepia">Sepia</button>
+    <button  class="button"id="negative">Negative</button>
+    <button  class="button"id="noRed">no red colour</button>
+    <button  class="button"id="reset">Reset</button>
+ </div>
+<div id="sliders">
+
+    <div class="slider">
+        <input type="range" value="128"min="0" max="255" id="redSlider">
+        <p>CZERWONY<span id="redValue"></span></p>
+      </div>
+      <div class="slider">
+            <input type="range"value="128" min="0" max="255" id="greenSlider">
+            <p>ZIELONY<span  id="greenValue"></span></p>
+          </div>
+          <div class="slider">
+                <input type="range" value="128"min="0" max="255" id="blueSlider">
+                <p>NIEBIESKI<span  id="blueValue"></span></p>
+              </div>
+          </div> 
+        </div>
+</div>
+    <script>
+
+var redSlider = document.getElementById("redSlider"); 
+var greenSlider = document.getElementById("greenSlider"); 
+var blueSlider = document.getElementById("blueSlider"); 
+var redOutput = document.getElementById("redValue");
+var greenOutput = document.getElementById("greenValue");
+var blueOutput = document.getElementById("blueValue");
+ 
+redOutput.innerHTML = redSlider.value;
+greenOutput.innerHTML = greenSlider.value; 
+blueOutput.innerHTML = blueSlider.value;                
+ 
+redSlider.oninput = function()                  
+{
+  redOutput.innerHTML = redSlider.value;
+
+
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+      for(let i=0;i<imageData.data.length;i+=4){
+
+        imageData.data[i] = redSlider.value;      
+        }  
+          ctx.putImageData(imageData,0,0);
+          console.log(imageData);
+             
+}
+greenSlider.oninput = function()                  
+{
+  greenOutput.innerHTML = greenSlider.value;
+
+
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+      for(let i=0;i<imageData.data.length;i+=4){
+        imageData.data[i+1] = greenSlider.value;      
+        }  
+          ctx.putImageData(imageData,0,0);
+          console.log(imageData);
+             
+}
+blueSlider.oninput = function()                  
+{
+  blueOutput.innerHTML = blueSlider.value;
+
+
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+      for(let i=0;i<imageData.data.length;i+=4){
+        imageData.data[i+2] = blueSlider.value;      
+        }  
+          ctx.putImageData(imageData,0,0);
+          console.log(imageData);
+             
+}
+
+
+
+    let canvas = document.querySelector('#ps');
+    let ctx = canvas.getContext('2d');
+    const imgSrc = 'zdj.jpg';
+    let img = new Image();
+    img.src = imgSrc;
+    img.addEventListener('load', ()=>{
+         ctx.drawImage(img, 0, 0, canvas.width,canvas.height);
+      
+    })
+ 
+
+
+   document.querySelector('#brighter').addEventListener('click',()=>{brightnessChange(30)});
+   document.querySelector('#darker').addEventListener('click',()=>{brightnessChange2(30)});
+   document.querySelector('#blackWhite').addEventListener('click',()=>{blackWhite()});
+   document.querySelector('#grayscale').addEventListener('click',()=>{grayScale()});
+   document.querySelector('#sepia').addEventListener('click',()=>{sepia()});
+   document.querySelector('#negative').addEventListener('click',()=>{negative()});
+   document.querySelector('#noRed').addEventListener('click',()=>{noRed()});
+   document.querySelector('#reset').addEventListener('click',()=>{reset()});
+
+
+function reset(){
+    ctx.drawImage(img, 0, 0, canvas.width,canvas.height);
+    redSlider.value=128;
+    greenSlider.value=128;
+    blueSlider.value=128;
+    redOutput.innerHTML = redSlider.value;
+    greenOutput.innerHTML = greenSlider.value; 
+    blueOutput.innerHTML = blueSlider.value;       
+}
+
+
+
+function grayScale(){
+   
+        let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+      for(let i=0;i<imageData.data.length;i+=4){
+      let grayscale = imageData.data[i] * .3 + imageData.data[i+1] * .59 + imageData.data[i+2] * .11;
+        imageData.data[i  ] = grayscale;      
+        imageData.data[i+1] = grayscale;        
+        imageData.data[i+2] = grayscale;        
+        
+        }  
+          ctx.putImageData(imageData,0,0);
+          console.log(imageData);
+      
+        
+       
+
+
+}
+
+function sepia(){
+   
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+ for(let i=0;i<imageData.data.length;i+=4){
+ let grayscale = imageData.data[i] * .3 + imageData.data[i+1] * .59 + imageData.data[i+2] * .11;
+   imageData.data[i  ] = grayscale +100;      
+   imageData.data[i+1] = grayscale+50;        
+   imageData.data[i+2] = grayscale;        
+   
+   }  
+     ctx.putImageData(imageData,0,0);
+     console.log(imageData);
+ 
+   
+  
+
+
+}
+
+function negative(){
+   
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+ for(let i=0;i<imageData.data.length;i+=4){
+
+   imageData.data[i] =255- imageData.data[i];      
+   imageData.data[i+1] =255- imageData.data[i+1];        
+   imageData.data[i+2] =255- imageData.data[i+2];        
+   
+   }  
+     ctx.putImageData(imageData,0,0);
+     console.log(imageData);
+ 
+   
+  
+
+
+}
+
+function noRed(){
+   
+   let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+ for(let i=0;i<imageData.data.length;i+=4){
+
+   imageData.data[i] =0;      
+       
+   
+   }  
+     ctx.putImageData(imageData,0,0);
+     console.log(imageData);
+ 
+ 
+
+}
+
+   function brightnessChange(factor){
+  
+    let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+   
+    for(let i =0;i<imageData.data.length; i+=4){
+   
+      imageData.data[i] =Math.min(255,imageData.data[i] +factor);
+      imageData.data[i+1] +=factor;
+      imageData.data[i+2] +=factor;
+    }
+
+
+  ctx.putImageData(imageData,0,0);
+  console.log(imageData);
+   }
+
+
+
+   function brightnessChange2(factor){
+  
+    let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+   
+    for(let i =0;i<imageData.data.length; i+=4){
+
+      imageData.data[i] =Math.min(255,imageData.data[i] -factor);
+      imageData.data[i+1] -=factor;
+      imageData.data[i+2] -=factor;
+    }
+
+
+    
+  ctx.putImageData(imageData,0,0);
+  console.log(imageData);
+   }
+
+
+
+function blackWhite(){
+   
+    let imageData = ctx.getImageData(0,0, canvas.width,canvas.height);
+   
+    
+    for(let i =0;i<imageData.data.length; i+=4){
+    
+    if(imageData.data[i]>=170){
+    imageData.data[i] =255
+    imageData.data[i+1] =255
+    imageData.data[i+2] =255
+    }
+   else if(imageData.data[i]<170){
+    imageData.data[i] =0
+    imageData.data[i+1] =0
+    imageData.data[i+2] =0
+    }
+
+    }
+
+  ctx.putImageData(imageData,0,0);
+  console.log(imageData);
+   }
+
+    </script>
+</body>
+</html>
