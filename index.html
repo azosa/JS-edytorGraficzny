@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Photo Editor</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+  
     <style>
          input[type=range] {
   -webkit-appearance: none; 
@@ -37,28 +38,36 @@ input[type=range]::-ms-track {
       margin: 10% auto auto auto;
       padding:30px;
       width:80%;
+      height: 100%;
       box-shadow: 1px 2px 12px #3d3a3a;
       display:flex;
       flex-direction: row;
+      justify-content: space-evenly;
+     
     }
-    #canvas{
-      margin: auto auto;
+    #canvas{ 
+
+width: 600px;
+height:400px;
+
     }
     #options{
       display:flex;
-      margin:auto auto;
       flex-wrap: nowrap;
-   
+   justify-content: space-between;
     }
    #option{
      margin: 30px 40px 30px 20px;
+     display: flex;
+     flex-direction: column;
+
 
    }
   
    .button{
      margin:5px;
      padding:5px;
-     width:100%;
+  
      font-family: 'Open Sans', sans-serif;
      font-weight: 500;
      text-transform: uppercase;
@@ -79,6 +88,9 @@ input[type=range]::-ms-track {
      margin: auto auto;
      display:flex;
      flex-direction: column;
+  
+
+     
    }
 .slider span{
   margin-left:20px;
@@ -89,7 +101,7 @@ input[type=range]::-ms-track {
     font-weight: 500;
     color: rgba(0, 0, 0, 0.753);
     text-align: center;
-    width: 400px;
+    width: 100%;
    
    }
 
@@ -223,22 +235,36 @@ input[type=range]::-ms-thumb {
   background: rgba(34, 180, 78, 1);
 }
 
-
+@media only screen and (min-width: 1400px){
+  #container{
+    max-width: 60%;
+  }
+}
 
  
-@media only screen and (max-width: 1450px){
+@media only screen and (max-width: 700px){
+
   #container{
     
       flex-direction: column;
     }
+    #canvas{ 
+width: 100%;
+height:auto;}
 
-    .button{
- 
-     width:45%;
+
 }
+@media only screen and (max-width: 520px){
 #options{
   flex-direction: column;
 }
+#option{
+  margin:10px;
+}
+#sliders{
+  margin:0;
+}
+
 }
     </style>
 </head>
@@ -247,8 +273,9 @@ input[type=range]::-ms-thumb {
   <div id="container">
    
      <div id="canvas">
-    <canvas width="600" height="300" id="ps"></canvas>
-  </div> <div id="options">
+    <canvas id="ps"></canvas>
+  </div> 
+  <div id="options">
   <div id="option">
     <button class="button"id="brighter">Brighter</button>
     <button  class="button" id="darker">Darker</button>
@@ -331,8 +358,10 @@ blueSlider.oninput = function()
 }
 
 
-
+    let a = document.querySelector('#canvas');
     let canvas = document.querySelector('#ps');
+    canvas.setAttribute('width',a.clientWidth);
+    canvas.setAttribute('height',a.clientHeight);
     let ctx = canvas.getContext('2d');
     const imgSrc = 'zdj.jpg';
     let img = new Image();
